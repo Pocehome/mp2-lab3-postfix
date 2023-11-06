@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include "postfix.h"
 
@@ -22,3 +22,9 @@ int main()
 
   return 0;
 }
+
+
+//int main() {
+//	int a[5] = {1, 2, 3, 4, 5};
+//	TStack stack(a);
+//}
