@@ -23,17 +23,19 @@ public:
 			this->pMem[i] = a.pMem[i];
 		}
 	};
-	/*TStack(const T* arr, size_t s) {
+	TStack(const T* arr, size_t sz) {
+		if ((sz < 1) || (sz > MaxStackSize))
+			throw std::out_of_range("Stack size not allowed");
 		this->size = 100;
 		this->pMem = new T[this->size];
-		this->end = this->pMem + s;
-		for (size_t i = 0; i < s; i++) {
-			this->pMem[i] = a.pMem[i];
+		this->end = this->pMem + sz;
+		for (size_t i = 0; i < sz; i++) {
+			this->pMem[i] = arr[i];
 		}
 	};
 	~TStack() {
 		delete this->pMem;
-	};*/
+	};
 
 	// methods
 	void push(T el) {
@@ -52,13 +54,13 @@ public:
 	};
 	const T& top() {
 		if (this->pMem == this->end) {
-			throw out_of_range("Empty stack");
+			throw std::out_of_range("Empty stack");
 		}
 		return *(this->end - 1);
 	};
 	void pop() {
 		if (this->pMem == this->end) {
-			throw out_of_range("Empty stack");
+			throw std::out_of_range("Empty stack");
 		}
 		this->end--;
 	};
@@ -68,8 +70,8 @@ public:
 	int els_count() {
 		return (this->end - this->pMem);
 	};
-	int size() {
-		return this->size
+	int get_size() {
+		return (this->size);
 	};
 	bool operator==(const TStack<T>& a) {
 		if (this->els_count() != a.els_count()) {
@@ -95,16 +97,14 @@ public:
 	};
 
 	// input and output
-	friend std::ostream& operator<<(std::ostream& out, const TStack<T>& a);
-	//friend std::ostream& operator>>(ostream& in, const TStack<T>& a);
-};
-
-template <class T>
-std::ostream& operator<<(std::ostream& out, const TStack<T>& a) {
-	for (size_t i = 0; i < a.els_count() - 1; i++) {
-		out << a.pMem[i] << ", "
+	friend std::ostream& operator<<(std::ostream& out, TStack<T>& a) {
+		for (size_t i = 0; i < a.els_count() - 1; i++) {
+			out << a.pMem[i] << "; ";
+		}
+		out << *(a.end);
+		return out;
 	}
-	out << *(a.end)
+	//friend std::ostream& operator>>(ostream& in, const TStack<T>& a);
 };
 
 //template <class T>
