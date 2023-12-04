@@ -1,0 +1,2 @@
+C:\Users\s22380119\source\repos\mp2-lab3-postfix-master\Сысоев\gtest\Debug\gtest.lib
+C:\Users\s22380119\source\repos\mp2-lab3-postfix-master\Сысоев\gtest\Debug\gtest.pdb
