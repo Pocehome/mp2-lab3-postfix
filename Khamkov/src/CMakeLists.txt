@@ -1,6 +1,7 @@
-file(GLOB hdrs "*.h*")
+set(target ${MP2_LIBRARY})
+
+file(GLOB hdrs "*.h*" "${MP2_INCLUDE}/*.h*")
 file(GLOB srcs "*.cpp")
 
-#include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty")
-
-add_executable(postfix ${srcs} ${hdrs})
+add_library(${target} STATIC ${srcs} ${hdrs})
+target_link_libraries(${target} ${LIBRARY_DEPS})
